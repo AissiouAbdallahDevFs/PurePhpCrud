@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mister Cocktail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400">
+    <link rel="stylesheet" href="www/css/cocktails.css">
+</head>
+<body class="container-fluid">
+
+    <h2>Détails d'un cocktail</h2>
+    <ul>
+        <li>Nom : <?= $lister['nom'] ?></li>
+        <li>Famille : <?= $lister['nomFamille'] ?></li>
+        <li>Description : <?= $lister['description'] ?></li>
+        <li>Année conception : <?= $lister['anneeConception'] ?></li>
+        <li>Prix moyen : <?= $lister['prixMoyen'] ?> €</li>
+        <button type="submit" class="btn btn-primary mt-2" value="Retour" onclick="history.go(-1)">Retour</button>  <!-- code js pour un retour en arriere -->
+</ul>
+</body>
+</html>
