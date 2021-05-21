@@ -2,7 +2,40 @@
 
 function ajouterCocktail($nom, $description, $urlPhoto, $anneeConception, $prixMoyen, $idFamille)
 {
-    
+    $pdo = connectToDatabase();
+
+    // Préparation de la requête SQL d'insertion
+    $query = $pdo->prepare('
+        INSERT INTO Cocktail
+        (
+            nom, 
+            description, 
+            urlPhoto, 
+            dateConception, 
+            prixMoyen, 
+            idFamille
+        )
+        VALUES
+        (
+            ?, ?, ?, ?, ?, ?
+        )
+    ');
+    // La colonne id n'est pas spécifiée, la valeur est automatiquement insérée par MySQL
+
+    // Création de la date de conception au format YYYY-MM-DD à partir de l'année spécifiée
+    $dateConception = "$anneeConception-01-01";
+
+    // Exécution de la requête SQL INSERT
+    $query->execute(
+    [
+        $nom, 
+        $description, 
+        $urlPhoto, 
+        $dateConception, 
+        $prixMoyen, 
+        $idFamille
+    ]);
+   
 }
 
 function editerCocktail($id, $nom, $description, $anneeConception, $prixMoyen, $idFamille)
